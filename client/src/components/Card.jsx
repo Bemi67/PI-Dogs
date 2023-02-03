@@ -9,14 +9,18 @@ export default function Card({ id, image, name, temperament, weight }) {
                    <img src={image} alt="flag"/>
                 </div>
                  <div>
-                   <h4>{name}</h4>
+                   <h1>Breed Name: {name}</h1>
                  </div>
                 <div>
-                   <h1>{temperament}</h1>
+                   <h1>Temperament: {temperament}</h1>
                 </div>
                 <div>
-                  <h1>{weight}</h1>
+                  <h1>Weight: {weight}</h1>
                 </div>
+                {/* <div>
+                  <h1>Delete Breed{id}</h1>
+                </div> */}
        </div>
       );
     }
+   
