@@ -1,4 +1,4 @@
-const { Router, application } = require('express');
+const { Router } = require('express');
 const axios = require ("axios")
 const { Dog, Temperament } = require ("../db")
 const getAllBreeds = require('../controllers/getAllBreeds');
@@ -24,20 +24,55 @@ router.get("/dogs", async (req, res) =>{
 // get all y por nombre funciona
 
 
-router.get('/dogs/:idRaza', async (req, res) => {
-    const { idRaza } = req.params
-    const allDogs = await getAllBreeds()
+router.get('/dogs/:id', async (req, res) => {
+    const { id } = req.params
+    const allBreeds = await getAllBreeds()
     try {
-            const dogSelected = allDogs.filter((dog) => dog.id == idRaza)
-            if (dogSelected.length){
-                return res.status(200).send(dogSelected)
+            const breedSelected = allBreeds.filter((breed) => breed.id == id)
+            if (breedSelected.length){
+                return res.status(200).send(breedSelected)
             } 
     } catch (error) {
-        return res.status(404).send({error: `The breed with the id ${idRaza} doesn't exist`})
+      res.status(404).send({error: `The breed with the id ${id} doesn't exist`})
     }
 });
 
+//breed by id andando
+router.post("/create", async (req, res) =>{
 
+  let { name, life_span, temperament, image, weight, height } = req.body;
+  
+  if (!name || !life_span || !temperament || !image ||!weight || !height)
+
+  res.status(400).json({msg: "Please enter all fields"})
+
+  const breedCheck= await Dog.findOne({
+
+      where: { name: name }
+  })
+
+  if(breedCheck) {
+
+      return res.status(404).send('Breed already exists')
+
+  } else {
+      let newBreed = await Dog.create({
+          name,
+          life_span: life_span + ' years', 
+          image, 
+          weight, 
+          height 
+          
+      })
+      
+  const temp = await Temperament.findAll({
+      where: { name: temperament }
+  })
+  newBreed.addTemperaments(temp)
+     
+      return res.status(200).send("New breed created")
+  }
+})
 
 router.post("/create", async (req, res) =>{
 
@@ -59,69 +94,61 @@ router.post("/create", async (req, res) =>{
     } else {
         let newBreed = await Dog.create({
             name,
-            life_span: life_span + ' years', 
+            life_span: life_span, 
             image, 
-            weight, 
-            height 
+            weight: weight,
+            height: height
             
         })
-        
-    const temp = await Temperament.findAll({
-        where: { name: temperament }
+     
+    //dejo de funcionar?    
+    temperament.forEach(async (t) => {
+    const temp = await Temperament.create({
+        name: t 
+    
     })
     newBreed.addTemperaments(temp)
+     }
+    )
+    
+     
+    
        
         return res.status(200).send("New breed created")
     }
 })
 
-// post funciona pero no muestra el temperamento
+// post funciona pero muestra el temperamento en un formato distinto
 
 
-router.get('/temperaments', async (req,res) => {
+/
+router.get("/temperaments", async (req, res) => {
     try {
-           const api = await axios.get('https://api.thedogapi.com/v1/breeds')
-           const breeds = await api.data.map (el => el.temperament)
-           let breedsSplit = await breeds.join().split(',')
-           let breedsTrim = await breedsSplit.map(temper => temper.trim())
-           await breedsTrim.forEach( async (temper) => {
-               if(temper.length > 0){
-                   await Temperament.findOrCreate({
-                       where : {name : temper}
-                   })
-               }
-           })
-           const allTemperament = await Temperament.findAll()
-          
-           return res.status(200).json(allTemperament)
-       }catch (error){
-            res.status(404).send({error: 'There are not temperaments'})
+      const temperamentsFromDB = await Temperament.findAll();
+      if (temperamentsFromDB >= 1) res.json(temperamentsFromDB);
+  
+      const apiInfo = await axios.get('https://api.thedogapi.com/v1/breeds');
+      let everyTemperament = apiInfo.data
+        ?.map((breed) => (breed.temperament ? breed.temperament : null))
+        .map((breed) => breed && breed.split(", ")); //
+      const mySet = [...new Set(everyTemperament.flat())]; // Set es un objeto que contiene valores únicos
+      let temperamentsToDB = mySet.forEach((t) => {
+        if (t) {
+          Temperament.findOrCreate({
+            where: { name: t },
+          });
         }
-   })
-
-   //temperaments andando
+      });
+      temperamentsToDB = await Temperament.findAll();
+      res.status(200).json(temperamentsToDB);
+    } catch (error) {
+      res.status(404).send("No temperaments found");
+    }
+  });
+//temperaments andando
 
  
 
-   router.delete('delete/:id', async(req, res) => {
-    try{
-        const { id } = req.params
 
-        const dogDelete = await Dog.findByPk(id)
-
-        if(!dogDelete){
-            res.status(404).send('Id not found')
-        }
-
-        await dogDelete.destroy()
-
-        res.send('Breed eliminated')
-    }
-    catch(error){
-        console.log(error)
-    }
-})
-
-module.exports = router;
 
 module.exports = router;
