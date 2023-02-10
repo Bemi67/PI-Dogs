@@ -1,0 +1,16 @@
+.breedInput{
+    font-family: Copperplate, Papyrus, fantasy;
+    transform: translateY(70px);
+    font-size: 30px;
+    justify-content: center;
+  
+}
+
+.breedButton{
+    font-family: Copperplate, Papyrus, fantasy;
+    transform: translateY(70px);
+    font-size: 30px;
+  
+  justify-content: center;
+   
+}

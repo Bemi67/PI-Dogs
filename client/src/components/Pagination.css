@@ -1,0 +1,23 @@
+
+.btnPag {
+    display: flex;
+    justify-content:space-evenly;
+    margin: 30px;
+    width: 70%;
+    margin-left: 10%;
+  }
+
+  .btnPag button {
+    border-radius: 15px;
+    background-color: azure;
+    color: #263849;
+    border-radius: .3em;
+    border: 1px solid;
+    font-size: 24px;
+  }
+
+  .btnPag button:hover {
+    color: azure;
+    background-color: #35bcbf;
+
+  }

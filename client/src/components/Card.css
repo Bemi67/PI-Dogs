@@ -1,0 +1,104 @@
+.allContainer{
+    margin-left: 60px;
+    width: 100%;
+  }
+  
+  .breedsContainer{
+      margin: 30px;
+      margin-right: 40px;
+      width: 100%;
+      
+  }
+  
+  .breedsCard{
+      border-radius: 15px;
+      background: #1500ff;
+      border-bottom: 4px solid #ff9a04;
+      height: 400px;
+      width: 300px;
+      margin-left: 18%;
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      text-align: center;
+      flex-direction: column;
+      transition: all 0.4s ease;
+      box-shadow: 0 0 10px 0 rgb(24, 24, 24);
+      
+  }
+  
+  .breedName{
+      font-size: 20px;
+  }
+  
+  .breedsImage{
+      border-radius: 30px;
+      margin-top: 30px;
+      width: 100%;
+      max-width: 100%;
+  }
+  
+  img{
+      width: 180px;
+      height: 300px;
+      max-height: 150px;
+      object-fit: cover;
+      margin-left: 20px;
+      margin-right: auto;
+      border-radius: 10px;
+  }
+  
+  .cardTemp{
+      color: #252931;
+      font-family: Copperplate, Papyrus, fantasy;
+      font-size: 14px;
+      text-align: center;
+      word-wrap: break-word;
+      margin: 0px;
+  }
+  
+  .cardW{
+      color: #263849;
+      font-family: Copperplate, Papyrus, fantasy;
+      font-size: 20px;
+      text-align: center;
+      word-wrap: break-word;
+  }
+  
+  a{
+      text-decoration: none;
+      width: 100%;
+      color: azure;
+      font-family:Copperplate, Papyrus, fantasy;
+  }
+  
+  a:hover {
+      color:  #2e3540; 
+      animation: rotate 0.7s ease-in-out both;
+  }
+  @keyframes rotate
+  {
+      0%
+    {
+      transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+    25%
+    {
+      transform: rotate(3deg) translate3d(0, 0, 0);
+    }
+    50%
+    {
+      transform: rotate(-3deg) translate3d(0, 0, 0);
+    }
+    75%
+    {
+      transform: rotate(3deg) translate3d(0, 0, 0);
+    }
+    50%
+    {
+      transform: rotate(5deg) translate3d(0, 0, 0);
+    }
+  
+  }
+  

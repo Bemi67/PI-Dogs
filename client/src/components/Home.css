@@ -1,0 +1,96 @@
+.CardContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
+
+.homeDiv{
+    display: inline-block;
+    background-size: cover;
+    
+}
+
+.welcome{
+    font-family: Copperplate, Papyrus, fantasy;
+    color: azure;
+}
+
+.filterBy{
+    font-family: Copperplate, Papyrus, fantasy;
+    margin-right: 500px;
+    background-color: azure;
+    border: 1px solid;
+    font-size: 30px;
+    display: flex;
+}
+
+.filterBy:hover{
+    background-color: azure;
+}
+
+.filterTemps{
+    font-family: Copperplate, Papyrus, fantasy;
+    margin-right: 500px;
+    background-color: azure;
+    border: 1px solid;
+    transform: translateY(2px);
+    font-size: 30px;
+    display: flex;
+}
+
+.filterTemps:hover{
+    background-color: azure;
+}
+
+.filterBreeds{
+    font-family: Copperplate, Papyrus, fantasy;
+    margin-left: 500px;
+    transform: translateY(-24px);
+    background-color: azure;
+    border: 1px solid;
+    font-size: 30px;
+    display: flex;
+}
+
+.filterBreeds:hover{
+    background-color: azure;
+}
+
+.createButton{
+    font-family: Copperplate, Papyrus, fantasy;
+    margin-left: 500px;
+    background-color: #35bcbf;
+    transform: translateY(20px);
+    border: 1px solid #0eb2b4;
+    color:whitesmoke;
+    border-radius: 5px;
+    font-size: 30px;
+    display: flex;
+}
+
+.createButton:hover{
+    background-color: #baf2f5;
+    color:#263849;
+    border: 1px solid #d0f5f7;
+    font-size: 30px;
+}
+
+.refBtn{
+    font-family: Copperplate, Papyrus, fantasy;
+    background-color: #35bcbf;
+    cursor: pointer;
+    border: 2px solid #0eb2b4;
+    border-radius: 6px;
+    color: whitesmoke;
+    font-size: 30px;
+    display: flex;
+    
+   
+}
+
+.refBtn:hover{
+    background-color: #baf2f5;
+    color:#263849;
+    border: 1px solid #d0f5f7;
+}

@@ -14,12 +14,13 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    
     life_span: {
       type: DataTypes.STRING,
       allowNull:false,
     },
     image: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true,
     },
     weight: {
@@ -31,7 +32,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
   },{
-    timestamps: true, createdAt: "created", updatedAt: false
+    timestamps: false,
   });
 };
 

@@ -1,15 +1,21 @@
 const {Dog, Temperament} = require('../db.js');
 
-const getDbInfo = async () =>{
-    return await Dog.findAll({
-        include:{
-            model: Temperament,
-            attributes: ['name'], 
-            through:{
-                attributes: [],
-            }
-        }
+const getDbInfo = async () => {
+    let breedsDB = await Dog.findAll({
+     
+      include: Temperament, 
     });
-}
-
+  
+    breedsDB  = JSON.stringify(breedsDB );
+    breedsDB  = JSON.parse(breedsDB ); 
+    breedsDB  = breedsDB.reduce(
+      (acc, el) =>
+        acc.concat({
+          ...el,
+          temperament: el.temperaments.map((t) => t.name), 
+        }),
+      []
+    ); //
+    return breedsDB;
+  };
 module.exports = getDbInfo;

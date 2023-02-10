@@ -1,26 +1,31 @@
+
 import React from "react";
+import { Link } from "react-router-dom";
+import "./Card.css";
 
 export default function Card({ id, image, name, temperament, weight }) {
+console.log()
+  return (
+    <div className="allContainer">
+      <div className="breedsContainer">
+        <div className="breedsCard">
+          <div className="breedsImage">
+            {image ? (
+              <img className="recipe" src={`${image}`} alt="There is no img" />
+            ) : (
+              <img className="recipe" src="" alt="There is no img" />
+            )}
+          </div>
+          <Link to={`/dogs/${id}`}>
+            <h2 className="breedName"> {name} </h2>
+         
+          <p className="cardTemp"> Temperaments: {temperament} </p>
 
-    
-      return (
-       <div>
-                <div>
-                   <img src={image} alt="flag"/>
-                </div>
-                 <div>
-                   <h1>Breed Name: {name}</h1>
-                 </div>
-                <div>
-                   <h1>Temperament: {temperament}</h1>
-                </div>
-                <div>
-                  <h1>Weight: {weight}</h1>
-                </div>
-                {/* <div>
-                  <h1>Delete Breed{id}</h1>
-                </div> */}
-       </div>
-      );
-    }
-   
+          <p className="cardW"> Weight: {weight}  Kg </p>
+ </Link>
+        
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,19 @@
+.background{
+    background-image: url('../Images/CERRO.jpg');
+    display: inline-block;
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Copperplate, Papyrus, fantasy;
+    
+}
+
+.detailsContainer{
+    background-color: rgb(72, 139, 190);
+    margin-top: 100px;
+    
+}
+
+ 
