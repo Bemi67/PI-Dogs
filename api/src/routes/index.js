@@ -1,4 +1,5 @@
 const { Router } = require('express');
+const { Router } = require('express');
 const axios = require ("axios")
 const { Dog, Temperament } = require ("../db")
 const getAllBreeds = require('../controllers/getAllBreeds');
@@ -27,18 +28,72 @@ router.get("/dogs", async (req, res) =>{
 router.get('/dogs/:id', async (req, res) => {
     const { id } = req.params
     const allBreeds = await getAllBreeds()
+router.get('/dogs/:id', async (req, res) => {
+    const { id } = req.params
+    const allBreeds = await getAllBreeds()
     try {
+            const breedSelected = allBreeds.filter((breed) => breed.id == id)
+            if (breedSelected.length){
+                return res.status(200).send(breedSelected)
             const breedSelected = allBreeds.filter((breed) => breed.id == id)
             if (breedSelected.length){
                 return res.status(200).send(breedSelected)
             } 
     } catch (error) {
+      res.status(404).send({error: `The breed with the id ${id} doesn't exist`})
         return res.status(404).send({error: `The breed with the id ${id} doesn't exist`})
     }
 });
 
 //breed by id andando
+router.post("/create", async (req, res) =>{
+//breed by id andando
 
+
+// router.post("/create", async (req, res) =>{
+
+  let { name, life_span, temperament, image, weight, height } = req.body;
+  
+  if (!name || !life_span || !temperament || !image ||!weight || !height)
+//     let { name, life_span, temperament, image, weight, height } = req.body;
+    
+//     if (!name || !life_span || !temperament || !image ||!weight || !height)
+
+//     res.status(400).json({msg: "Please enter all fields"})
+
+  res.status(400).json({msg: "Please enter all fields"})
+//     const breedCheck= await Dog.findOne({
+
+  const breedCheck= await Dog.findOne({
+//         where: { name: name }
+//     })
+
+      where: { name: name }
+  })
+//     if(breedCheck) {
+
+//         return res.status(404).send('Breed already exists')
+
+      return res.status(404).send('Breed already exists')
+
+  } else {
+      let newBreed = await Dog.create({
+          name,
+          life_span: life_span + ' years', 
+          image, 
+          weight, 
+          height 
+          
+      })
+      
+  const temp = await Temperament.findAll({
+      where: { name: temperament }
+  })
+  newBreed.addTemperaments(temp)
+     
+      return res.status(200).send("New breed created")
+  }
+})
 
 // router.post("/create", async (req, res) =>{
 
