@@ -37,7 +37,7 @@ export default function SearchBar() {
       />
       <button
         type="submit"
-        className="breedButton"
+        className="subBtn"
         onClick={(e) => {
           handleSubmit(e);
         }}

@@ -30,10 +30,12 @@
 }
 
 .landing h1{
-    min-width: 200px;
-    color: rgb(177, 15, 15);
     font-size: 80px;
-    margin-right: 1%;
+    font-weight: 600;
+    background-image: conic-gradient(hsla(0, 100%, 49%, 0.783), hwb(266 0% 0%),hsl(189, 99%, 50%));
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
     font-family: Copperplate, Papyrus, fantasy;
-    text-decoration: none;
+   
 }

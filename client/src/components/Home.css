@@ -11,32 +11,42 @@
     
 }
 
-.welcome{
+.title{
     font-family: Copperplate, Papyrus, fantasy;
-    color: azure;
+    font-size: 25px;
+    font-weight: 600;
+    background-image: repeating-radial-gradient(closest-side at 20px 20px,hsl(175, 100%, 50%), hsl(68, 90%, 50%), hwb(0 4% 7%));
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    filter: brightness(150%);
+      
 }
 
-.filterBy{
+.sortBy{
     font-family: Copperplate, Papyrus, fantasy;
-    margin-right: 500px;
     background-color: azure;
     border: 1px solid;
     font-size: 30px;
     display: flex;
+    margin-left: 855px;
+    transform: translateY(47px);
+    
 }
 
-.filterBy:hover{
+.sortBy:hover{
     background-color: azure;
 }
 
 .filterTemps{
     font-family: Copperplate, Papyrus, fantasy;
-    margin-right: 500px;
     background-color: azure;
     border: 1px solid;
-    transform: translateY(2px);
     font-size: 30px;
     display: flex;
+    margin-left: 1203px;
+    margin-top: -70px;
+    transform: translateY(65px);
 }
 
 .filterTemps:hover{
@@ -45,12 +55,12 @@
 
 .filterBreeds{
     font-family: Copperplate, Papyrus, fantasy;
-    margin-left: 500px;
-    transform: translateY(-24px);
     background-color: azure;
     border: 1px solid;
     font-size: 30px;
     display: flex;
+    margin-left: 253px;
+    transform: translateY(13px);
 }
 
 .filterBreeds:hover{
@@ -59,7 +69,6 @@
 
 .createButton{
     font-family: Copperplate, Papyrus, fantasy;
-    margin-left: 500px;
     background-color: #35bcbf;
     transform: translateY(20px);
     border: 1px solid #0eb2b4;
@@ -67,6 +76,11 @@
     border-radius: 5px;
     font-size: 30px;
     display: flex;
+    cursor: pointer;
+    margin-left: 963px;
+    margin-top: -70px;
+    transform: translateY(-5px);
+    
 }
 
 .createButton:hover{
@@ -85,12 +99,14 @@
     color: whitesmoke;
     font-size: 30px;
     display: flex;
-    
-   
-}
+    margin-left: 740px;
+    margin-top: 15px;
+    transform: translateY(32px);
+    }
 
 .refBtn:hover{
     background-color: #baf2f5;
     color:#263849;
     border: 1px solid #d0f5f7;
+    font-size: 30px
 }

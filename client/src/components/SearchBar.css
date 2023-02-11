@@ -1,16 +1,26 @@
 .breedInput{
     font-family: Copperplate, Papyrus, fantasy;
-    transform: translateY(70px);
+    transform: translateY(30px);
     font-size: 30px;
     justify-content: center;
+    border-radius: 5px;
   
 }
 
-.breedButton{
+.subBtn{
     font-family: Copperplate, Papyrus, fantasy;
-    transform: translateY(70px);
     font-size: 30px;
-  
-  justify-content: center;
+    background-color: #35bcbf;
+    border-radius: 5px;
+    cursor: pointer;
+    justify-content: center;
+    transform: translateY(30px);
    
+}
+
+.subBtn:hover{
+  background-color: #baf2f5;
+  color:#263849;
+  border: 1px solid #d0f5f7;
+  font-size: 30px
 }

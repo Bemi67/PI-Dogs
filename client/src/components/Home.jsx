@@ -92,8 +92,8 @@ export default function Home() {
 
   return (
     <div className="homeDiv">
-      <div className="welcome">
-        <h1> Welcome to the Breeds Library</h1>
+      <div className="title">
+        <h1> Breeds Library</h1>
       </div>
       <div>
         
@@ -141,7 +141,7 @@ export default function Home() {
         </Link>
       </div>
       <div>
-        <select className="filterBy" onChange={(e) => handleSort(e)}>
+        <select className="sortBy" onChange={(e) => handleSort(e)}>
           <option value="default"> Sort by... </option>
           <option value="az"> A-Z</option>
           <option value="za"> Z-A </option>
