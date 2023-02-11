@@ -3,7 +3,7 @@
     display: flex;
     justify-content:space-evenly;
     margin: 30px;
-    width: 70%;
+    width: 80%;
     margin-left: 10%;
   }
 
@@ -14,10 +14,21 @@
     border-radius: .3em;
     border: 1px solid;
     font-size: 24px;
+    transform: scale(100%);
   }
 
   .btnPag button:hover {
     color: azure;
     background-color: #35bcbf;
+    transform: scale(130%);
 
+  }
+
+  .buttonCont{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: row wrap;
+    width: 100%;
+    gap: 25px;
   }

@@ -17,6 +17,7 @@ export default function Pagination({
   }
 
   return (
+    <div className=".buttonCont">
     <nav className="btnPag">
       <button
         onClick={() =>
@@ -40,5 +41,6 @@ export default function Pagination({
         »»»{" "}
       </button>
     </nav>
+    </div>
   );
 }

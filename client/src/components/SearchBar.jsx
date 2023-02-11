@@ -24,7 +24,7 @@ export default function SearchBar() {
   }
 
   return (
-    <div>
+    <div className="buttonCon">
       <input
         className="breedInput"
         type="text"

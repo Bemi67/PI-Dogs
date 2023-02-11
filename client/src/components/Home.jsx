@@ -95,7 +95,7 @@ export default function Home() {
       <div className="title">
         <h1> Breeds Library</h1>
       </div>
-      <div>
+     
         
       {currentBreeds.length === 0 ? (
         <div>
@@ -121,6 +121,15 @@ export default function Home() {
           
         </div>
       )}
+      <div className="buttonCont">
+      <div>
+        <Link to="/home/form">
+          <button className="createButton" type="button">
+            Create Breed
+          </button>
+        </Link>
+      </div>
+      <div>
       <button
           className="refBtn"
           onClick={(e) => {
@@ -130,16 +139,14 @@ export default function Home() {
           Refresh
         </button>
       </div>
+
+      </div>
+      <div className="buttonCont">
+      
       <div className="searchBar">
         <SearchBar />
       </div>
-      <div>
-        <Link to="/home/form">
-          <button className="createButton" type="button">
-            Create Breed
-          </button>
-        </Link>
-      </div>
+     
       <div>
         <select className="sortBy" onChange={(e) => handleSort(e)}>
           <option value="default"> Sort by... </option>
@@ -177,6 +184,8 @@ export default function Home() {
           <option value="api"> Library Breeds</option>
         </select>
       </div>
+      </div>
+      
       <div className="Pagination">
         <Pagination
           breedsPerPage={breedsPerPage}
@@ -185,7 +194,9 @@ export default function Home() {
           currentPage={currentPage}
         />
       </div>
+      <div>
       <h4>By Bernabé Michel</h4>
-    </div>
+      </div>
+      </div>
   );
 }

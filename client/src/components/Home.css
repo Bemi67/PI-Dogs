@@ -6,7 +6,9 @@
 }
 
 .homeDiv{
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    gap: 50px 0;
     background-size: cover;
     
 }
@@ -29,9 +31,7 @@
     border: 1px solid;
     font-size: 30px;
     display: flex;
-    margin-left: 855px;
-    transform: translateY(47px);
-    
+   
 }
 
 .sortBy:hover{
@@ -44,9 +44,7 @@
     border: 1px solid;
     font-size: 30px;
     display: flex;
-    margin-left: 1203px;
-    margin-top: -70px;
-    transform: translateY(65px);
+ 
 }
 
 .filterTemps:hover{
@@ -59,8 +57,7 @@
     border: 1px solid;
     font-size: 30px;
     display: flex;
-    margin-left: 253px;
-    transform: translateY(13px);
+  
 }
 
 .filterBreeds:hover{
@@ -70,17 +67,14 @@
 .createButton{
     font-family: Copperplate, Papyrus, fantasy;
     background-color: #35bcbf;
-    transform: translateY(20px);
     border: 1px solid #0eb2b4;
     color:whitesmoke;
     border-radius: 5px;
     font-size: 30px;
     display: flex;
     cursor: pointer;
-    margin-left: 963px;
-    margin-top: -70px;
-    transform: translateY(-5px);
-    
+    transform: scale(100%);
+  
 }
 
 .createButton:hover{
@@ -88,25 +82,37 @@
     color:#263849;
     border: 1px solid #d0f5f7;
     font-size: 30px;
+    transform: scale(110%);
 }
 
 .refBtn{
     font-family: Copperplate, Papyrus, fantasy;
     background-color: #35bcbf;
     cursor: pointer;
-    border: 2px solid #0eb2b4;
+    border: 1px solid #0eb2b4;
     border-radius: 6px;
     color: whitesmoke;
     font-size: 30px;
     display: flex;
-    margin-left: 740px;
-    margin-top: 15px;
-    transform: translateY(32px);
+    transform: scale(100%);
+    
+   
     }
-
+    /* probar transform scale en los otros botones sin agrandar border  */
 .refBtn:hover{
     background-color: #baf2f5;
     color:#263849;
     border: 1px solid #d0f5f7;
-    font-size: 30px
+    font-size: 30px;
+    transform: scale(110%);
+}
+
+
+.buttonCont{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: row wrap;
+    width: 100%;
+    gap: 25px;
 }
