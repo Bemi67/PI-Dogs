@@ -21,12 +21,14 @@
     font-size: 30px;
     background-color: #41506b;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    transform: scale(100%);
 }
 
 .btnLan:hover{
     background-color: #90f6d7;
     color: #41506b;
     border: 2px solid #74f5ce;
+    transform: scale(110%);
 }
 
 .landing h1{

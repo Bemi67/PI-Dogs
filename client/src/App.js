@@ -1,8 +1,8 @@
 import { Route, BrowserRouter, Switch } from "react-router-dom";
-import LandingPage from "./Components/LandingPage";
-import Home from "./Components/Home";
-import Details from "./Components/Detail";
-import Form from "./Components/Form";
+import LandingPage from "./Components/LandingPage.jsx";
+import Home from "./Components/Home.jsx";
+import Details from "./Components/Detail.jsx";
+import Form from "./Components/Form.jsx";
 import "./App.css";
 
 function App() {
