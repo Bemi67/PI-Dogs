@@ -4,7 +4,7 @@ const getDbInfo = require('./getDbInfo');
 const getAllBreeds = async () =>{
     const apiInfo = await getApiInfo();
     const dbInfo = await getDbInfo();
-    // const apiAndDbInfoCombined = apiInfo.concat(dbInfo);
+    // combino los dos resultados
     const apiAndDbInfoCombined = [...dbInfo, ...apiInfo]
     return apiAndDbInfoCombined;
 }

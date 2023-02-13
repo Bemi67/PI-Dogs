@@ -14,7 +14,8 @@ router.get("/temperaments", async (req, res) => {
       let everyTemperament = apiInfo.data
         ?.map((breed) => (breed.temperament ? breed.temperament : null))
         .map((breed) => breed && breed.split(", ")); 
-// Set es un objeto que contiene valores únicos
+// El objeto Set le permite almacenar valores únicos de cualquier tipo, ya sea valores primitivos o referencias a objetos
+//El método flat() crea una nueva matriz con todos los elementos de sub-array concatenados recursivamente hasta la profundidad especificada
       const mySet = [...new Set(everyTemperament.flat())]; 
       let temperamentsToDB = mySet.forEach((t) => {
         if (t) {
@@ -23,6 +24,9 @@ router.get("/temperaments", async (req, res) => {
           });
         }
       });
+//The Sequelize findAll() method is used to query data from your SQL table to your JavaScript application. 
+//The method will return your table rows as an array of objects.
+// The findAll() method can be called from a Model that represents the table in your database.
       temperamentsToDB = await Temperament.findAll();
       res.status(200).json(temperamentsToDB);
     } catch (error) {
