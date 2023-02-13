@@ -1,3 +1,4 @@
+//importo las acciones
 import {
   GET_BREEDS,
   GET_BY_BREED,
@@ -12,11 +13,15 @@ import {
 
 const initialState = {
   breeds: [],
+  //guarda los filtros aplicados
   filtered: [],
   breedsDetails: [],
   temperaments: [],
 };
 
+//esta función la hice para poder separar los datos que vienen en un string de peso y altura
+//para luego poder sacar un promedio entre el valor inferior y el superior,
+//que permitirá el ordenamiento
 var average = function(string) {
   var str = string;
   var arr = str.split(" - ");
@@ -26,12 +31,16 @@ var average = function(string) {
   }
   return sum / arr.length;
 }
-
+//recibe un estado (es el inicial) y una acción
 export default function rootReducer(state = initialState, action) {
+//switch evalua/se fija en el tipo de acción que se recibe
   switch (action.type) {
+// en caso de recibir esta acción le indico que hacer   
     case GET_BREEDS:
       return {
+//agrego la copia de todo lo que hay en el estado
         ...state,
+//aplicamos la lógica deseada en este caso guardo las razas que vienen en el payload (un array de objetos)
         breeds: action.payload,
         filtered: action.payload,
       };
@@ -137,11 +146,14 @@ export default function rootReducer(state = initialState, action) {
       }
 
     case FILTER_BY_TEMPERAMENTS:
-      const allBreeds = state.filtered; // acabo de crear una variable que contiene a todos los perros
+//crea una variable que contiene a todas las razas
+      const allBreeds = state.filtered; 
       const temperamentFilter =
+// si el payload es igual a all, entonces que me devuelva todos los perros, sino que me devuelva
+// los perros que incluyan el temperament que le estoy pasando por el payload
         action.payload === "All"
           ? allBreeds
-          : allBreeds.filter((e) => e.temperament?.includes(action.payload)); // si el payload es igual a all, entonces que me devuelva todos los perros, sino que me devuelva los perros que incluyan el temperament que le estoy pasando por el payload
+          : allBreeds.filter((e) => e.temperament?.includes(action.payload)); 
       return {
         ...state,
         breeds: temperamentFilter,

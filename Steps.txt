@@ -1,0 +1,33 @@
+Back y db
+1) index levanta el sv
+2) en db.js: 
+levanto sequelize y lo configuro
+creo la db en SQL
+aqui tmb se hacen las relaciones después de definir los modelos
+3) Defino los modelos de sequelize en models/Dog y Temperament
+Defino los DataTypes
+4)Todas las request son redirigidas de App.js a /routes/index
+Ya se puede levantar el servidor
+morgan da información de las solicitudes q tenemos
+5) armo los controles para la ruta get
+6)armo todas las rutas y las testeo
+
+Front
+1)Arranco por la carpeta redux:
+2) arranco con las actions.js:
+importo axios
+uso clousures fc q retorna otra fc
+se hace un pedido asyncronico para que el axios traga la data del back por payload
+3)voy a el reducer
+importo las acciones
+defino el initial state
+comienzo el root reducer
+pongo todas las acciones dentro (switch)
+4)Una vez hecho el reducer se puede pasar al store
+5)Traer la store a la aplicacion al client/src/index.js
+Encierro la aplicación en el provider
+6)Ya se puede levantar el front
+7)Vamos App.js (tiene q estar lo más limpio posible)
+Pongo las vistas primcipales
+8) Arranco con los componentes
+

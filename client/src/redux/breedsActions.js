@@ -1,11 +1,23 @@
+//Las acciones asíncronas en Redux se caracterizan por ser un objeto de JavaScript,
+//que retorna un tipo de acción, por el que será identificada y que definirá posteriormente 
+//en el reducer el modo en el que modificará el state así como la información que trae, 
+//en un espacio llamado payload.
 import axios from "axios";
+//trae todas las razas
 export const GET_BREEDS = "GET_BREEDS"; 
-export const GET_BREEDS_DETAILS = "GET_BREEDS_DETAILS"; 
-export const GET_BY_BREED = "GET_BY_BREED";
-export const ORDER_BY = "ORDER_BY";
-export const FILTER_BY_TEMPERAMENTS = "FILTER_BY_TEMPERAMENTS";
+//trae todos los temperamentos
 export const GET_TEMPERAMENTS = "GET_TEMPERAMENTS";
+//trae el detalle de la raza
+export const GET_BREEDS_DETAILS = "GET_BREEDS_DETAILS"; 
+//trae raza por nombre
+export const GET_BY_BREED = "GET_BY_BREED";
+//ordena de la A-Z,Z-A, mas pesado y más liviano
+export const ORDER_BY = "ORDER_BY";
+//filtra por temperamento
+export const FILTER_BY_TEMPERAMENTS = "FILTER_BY_TEMPERAMENTS";
+//flitra por razas creadas/api/todas
 export const FILTER_BY_BREED = "FILTER_BY_BREED";
+//crea una raza
 export const CREATE_BREED = "CREATE_BREEDS";
 export const CLEAN = "CLEAN";
 
@@ -16,6 +28,7 @@ export function getBreeds() {
       var pedidoApi = await axios.get("http://localhost:3001/dogs");
       return dispatch({
         type: GET_BREEDS,
+      //esto es lo que devuelve la accion
         payload: pedidoApi.data,
       });
     } catch (error) {
@@ -27,7 +40,8 @@ export function getBreeds() {
 
 export function getTemperaments() {
   return async function (dispatch) {
-    var pedidoApi = await axios("http://localhost:3001/temperaments", {}); 
+  //devuelve un array de temperamentos
+    var pedidoApi = await axios.get("http://localhost:3001/temperaments", {}); 
     return dispatch({
       type: GET_TEMPERAMENTS, 
       payload: pedidoApi.data, 
@@ -42,6 +56,7 @@ export function getBreedsDetails(id) {
       var pedidoApi = await axios.get(`http://localhost:3001/dogs/${id}`);
       return dispatch({
         type: GET_BREEDS_DETAILS,
+    //despacha la info conseguida
         payload: pedidoApi.data[0] || pedidoApi.data, 
       });
     } catch (error) {

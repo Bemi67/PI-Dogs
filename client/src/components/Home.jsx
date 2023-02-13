@@ -1,4 +1,5 @@
 import React,{ useState, useEffect } from "react";
+//Hooks
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {
@@ -17,7 +18,7 @@ import "./Home.css";
 // renderiza el componente Home
 export default function Home() {
   
-//permite usar las acciones
+//permite renderizar las acciones
   const dispatch = useDispatch(); 
 //permite usar el estado
   const allBreeds = useSelector((state) => state.breeds); 
@@ -103,7 +104,7 @@ export default function Home() {
         </div>
       ) : (
         <div className="CardContainer">
-          {currentBreeds?.map((breed) => {
+          {currentBreeds?.map((breed) => { //lógica de ternarios
             console.log(breed)
             return (
               <div key={breed.id} >

@@ -1,8 +1,7 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Card.css";
-
+//destructuro las propiedades que me llegan por props
 export default function Card({ id, image, name, temperament, weight }) {
 console.log()
   return (
