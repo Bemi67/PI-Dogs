@@ -15,10 +15,11 @@ export default function SearchBar() {
   function handleSubmit(e) {
     e.preventDefault();
     if (!name.length || name.charAt(0) === " ") {
-      //si no hay nada en el input o un espacio.
-      return alert("Please insert a valid name."); //no hace nada
+//si no hay nada en el input o un espacio.no hace nada
+      return alert("Please insert a valid name.");
     } else {
-      dispatch(getByBreed(name)); //si hay algo en el input, hace el dispatch con el valor del input
+//si hay algo en el input, hace el dispatch con el valor del input
+      dispatch(getByBreed(name)); 
       setName("");
     }
   }

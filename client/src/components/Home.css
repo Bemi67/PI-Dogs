@@ -98,7 +98,7 @@
     
    
     }
-    /* probar transform scale en los otros botones sin agrandar border  */
+/* probar transform scale en los otros botones sin agrandar border  */
 .refBtn:hover{
     background-color: #baf2f5;
     color:#263849;

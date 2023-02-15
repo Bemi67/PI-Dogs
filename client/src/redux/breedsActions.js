@@ -28,7 +28,7 @@ export function getBreeds() {
       var pedidoApi = await axios.get("http://localhost:3001/dogs");
       return dispatch({
         type: GET_BREEDS,
-      //esto es lo que devuelve la accion
+//esto es lo que devuelve la accion
         payload: pedidoApi.data,
       });
     } catch (error) {
@@ -40,7 +40,7 @@ export function getBreeds() {
 
 export function getTemperaments() {
   return async function (dispatch) {
-  //devuelve un array de temperamentos
+//devuelve un array de temperamentos
     var pedidoApi = await axios.get("http://localhost:3001/temperaments", {}); 
     return dispatch({
       type: GET_TEMPERAMENTS, 
@@ -56,7 +56,7 @@ export function getBreedsDetails(id) {
       var pedidoApi = await axios.get(`http://localhost:3001/dogs/${id}`);
       return dispatch({
         type: GET_BREEDS_DETAILS,
-    //despacha la info conseguida
+//despacha la info conseguida
         payload: pedidoApi.data[0] || pedidoApi.data, 
       });
     } catch (error) {
@@ -68,7 +68,7 @@ export function getBreedsDetails(id) {
 export function getByBreed(payload) {
   return async function (dispatch) {
     try {
-      //contecta con la ruta que busca por nombre de la raza
+//contecta con la ruta que busca por nombre de la raza
       var pedidoApi = await axios.get(`http://localhost:3001/dogs?name=${payload}`); 
       return dispatch({
         type: GET_BY_BREED,

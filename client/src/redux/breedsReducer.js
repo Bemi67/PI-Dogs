@@ -71,25 +71,28 @@ export default function rootReducer(state = initialState, action) {
     
     case ORDER_BY:
       if (action.payload === "default") {
-        // si el payload es default, entonces que me devuelva el estado inicial
+// si el payload es default, entonces que me devuelva el estado inicial
         return {
           ...state,
-          breeds: state.breeds, // esto es lo que me devuelve la action
+// esto es lo que me devuelve la action          
+          breeds: state.breeds, 
         };
       }
       if (action.payload === "az") {
-        // si el payload es az, entonces que me devuelva el estado inicial
+// si el payload es az, entonces que me devuelva el estado inicial
         return {
           ...state,
+// ordena de la A a la Z
           breeds: state.breeds.sort(function (a, b) {
-            // ordena de la A a la Z
+// si el nombre de a es mayor que el de b
             if (a.name > b.name) {
-              // si el nombre de a es mayor que el de b
-              return 1; // entonces que me devuelva 1 para que se ordene de la A a la Z
+// entonces que me devuelva 1 para que se ordene de la A a la Z
+              return 1; 
             }
+// si el nombre de b es mayor que el de a            
             if (b.name > a.name) {
-              // si el nombre de b es mayor que el de a
-              return -1; // tiene que devolver -1  para que se ordene de la Z a la A
+ // tiene que devolver -1  para que se ordene de la Z a la A             
+              return -1;
             }
             return 0;
           }),
@@ -184,9 +187,9 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         ...action.payload 
       };
-      // si no es ninguna de las anteriores, entonces que me devuelva el estado inicial
+// si no es ninguna de las anteriores, entonces que me devuelva el estado inicial
     default: 
-    // aca me devuelve el estado inicial
+// aca me devuelve el estado inicial
       return { ...state }; 
   }
 }

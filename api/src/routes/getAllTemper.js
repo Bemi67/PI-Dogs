@@ -14,7 +14,8 @@ router.get("/temperaments", async (req, res) => {
       let everyTemperament = apiInfo.data
         ?.map((breed) => (breed.temperament ? breed.temperament : null))
         .map((breed) => breed && breed.split(", ")); 
-// El objeto Set le permite almacenar valores únicos de cualquier tipo, ya sea valores primitivos o referencias a objetos
+// El objeto Set le permite almacenar valores únicos de cualquier tipo, ya sea valores primitivos o referencias a objetos, 
+//no guarda repetidos
 //El método flat() crea una nueva matriz con todos los elementos de sub-array concatenados recursivamente hasta la profundidad especificada
       const mySet = [...new Set(everyTemperament.flat())]; 
       let temperamentsToDB = mySet.forEach((t) => {

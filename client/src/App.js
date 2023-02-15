@@ -1,3 +1,4 @@
+//este archivo tiene que ser lo más limpio y sencillo posible
 import { Route, BrowserRouter, Switch } from "react-router-dom";
 import LandingPage from "./Components/LandingPage.jsx";
 import Home from "./Components/Home.jsx";

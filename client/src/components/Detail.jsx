@@ -7,8 +7,10 @@ import loading from "../Images/loading.gif";
 import "./Detail.css";
 
 export default function Details() {
-  const dispatch = useDispatch(); //para poder usar las acciones
-  let breedsDetail = useSelector((state) => state.breedsDetails); // para poder usar el estado
+//para poder usar las acciones  
+  const dispatch = useDispatch(); 
+// para poder usar el estado  
+  let breedsDetail = useSelector((state) => state.breedsDetails); 
   const { id } = useParams();
   console.log(id);
 

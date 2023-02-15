@@ -8,11 +8,11 @@ import rootReducer from "./breedsReducer";
 //al createStore se le pasan siempore 2 parámetros el primero siempre es el reducer
 //el segundo varía según la configuración
 const store = createStore(rootReducer,
-    // una forma permmite que aparezcan las devtools en el navegador
-    //compose(
-    //     applyMiddleware(thunk),
-    //     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    // )
+// una forma permmite que aparezcan las devtools en el navegador
+//compose(
+//     applyMiddleware(thunk),
+//     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// )
 //---------------------------------------
 // otra forma
     composeWithDevTools (

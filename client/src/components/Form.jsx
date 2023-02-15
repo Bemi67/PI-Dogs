@@ -5,9 +5,16 @@ import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import "./Form.css";
 
+//form--> 
+//completamos ---> le realizamos cambios ---> una fc para escribir handleChange, validamos antes de enviar
+//entregamos ---> lo enviamos a quien corresponda para que se encargue(backend) ---> una fc para enviarlo handleSubmit
+//handle reciben eventos
+
 const Form = () => {
-  const tempForm = useSelector((state) => state.temperaments); //para poder usar el estado.
-  const dispatch = useDispatch(); //para poder usar las acciones.
+//para poder usar el estado.
+  const tempForm = useSelector((state) => state.temperaments);
+//para poder usar las acciones.
+  const dispatch = useDispatch(); 
   const [create, setCreate] = useState(false);
   const initialState = {
     name: "",
@@ -36,7 +43,7 @@ const Form = () => {
   useEffect(() => {
     if (tempForm.length === 0) return dispatch(getTemperaments());
   }, [tempForm.length, dispatch]);
-
+//para validar los datos
   const validate = (completed) => {
     let errors = {};
     if (!completed.name) {
@@ -80,6 +87,7 @@ const Form = () => {
   };
 
   const handleChange = (e) => {
+//target es el evento que ha sido modificado, name hace referencia al nombre del input
     setCompleted({ ...completed, [e.target.name]: e.target.value });
     setErrors(
       validate({
@@ -88,7 +96,7 @@ const Form = () => {
       })
     );
   };
-
+// la hago por aparte xq es más fácil manejarla así x ser un array
   const handleTemperaments = (e) => {
     if (
       !completed.temperaments.includes(
@@ -143,8 +151,13 @@ const Form = () => {
           <div className="formTitle">
             <h1>Breed Creation Panel</h1>
           </div>
+{/* <form permite usar otras etiquetas como label y inpunt> */}
           <form onSubmit={(e) => handleSubmit(e)}>
             <label> Name: </label>
+{/* input tiene 3 valores primcipales
+name permite reconocer el evento, que es lo que ocurre 
+value el valor que se puso dentro del campo   
+onChange modifica el formulario en el estado local */}
             <input
               type="text"
               name="name"
@@ -239,11 +252,13 @@ const Form = () => {
 
             <div>
               <label> Temperaments: </label>
+{/* select recibe className value y on change con el handletemperametns especial */}
               <select
                 className="inputTemp"
                 value= {completed.temperaments}
                 onChange={(e) => handleTemperaments(e)}
               >
+{/* option permite renderizar los valores por cada temperamento */}
                 <option>All Temperaments</option>
                 {tempForm?.map((el) => (
                   <option key={el.id} value={el.name}>
@@ -272,6 +287,7 @@ const Form = () => {
               </button>
             </Link>
             <button className="submitButton" type="submit">
+{/* como esta dentro del formulario no le ponemos el onSubmit */}
               <p> Submit </p>
             </button>
           </form>

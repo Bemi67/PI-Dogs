@@ -4,6 +4,7 @@
     font-size: 30px;
     justify-content: center;
     border-radius: 5px;
+   
   
 }
 
@@ -16,6 +17,7 @@
     cursor: pointer;
     justify-content: center;
     transform: scale(100%);
+    
    
    
 }
@@ -26,7 +28,7 @@
   border: 1px solid #d0f5f7;
   font-size: 30px;
   transform: scale(110%);
-}
+ }
 
 .buttonCont{
   display: flex;

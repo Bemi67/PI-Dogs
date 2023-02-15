@@ -15,7 +15,7 @@ router.post("/create", async (req, res) => {
     res.status(400).json({ msg: "Missing data" });
 
     try {
-    //Busca una entrada en la tabla o la crea cuando no existe, devuelve una array
+//Busca una entrada en la tabla o la crea cuando no existe, devuelve una array
       const newBreed = await Dog.findOrCreate({
         
         where: {
@@ -26,7 +26,7 @@ router.post("/create", async (req, res) => {
           image: image,
         },
       });
-      //relaciono el ID del temperamento con la raza creada
+//relaciono el ID del temperamento con la raza creada
       await newBreed[0].setTemperaments(temperament); 
       
       res.status(200).json(newBreed);

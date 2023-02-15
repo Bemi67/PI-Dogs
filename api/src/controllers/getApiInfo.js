@@ -7,7 +7,7 @@ const getApiInfo = async () =>{
         if (data) return data.split(", ");
       };
     const apiData = await axios.get("https://api.thedogapi.com/v1/breeds");
-   //formateo los datos que llegan, el método map() crea un array nuevo
+//formateo los datos que llegan, el método map() crea un array nuevo
     const apiInfo = await apiData.data.map((breed) =>{
         return{
             id: breed.id,

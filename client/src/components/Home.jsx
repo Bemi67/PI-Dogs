@@ -36,7 +36,7 @@ export default function Home() {
   const indexOfLastBreed = currentPage * breedsPerPage;
 //detrmino la primera raza de la página
   const indexOfFirstBreed = indexOfLastBreed - breedsPerPage;
-//determino la cantidad de razas que se muestran por página  
+//determino la cantidad de razas que se muestran por página, slice() toma una porción del arreglo según los parametros que le doy 
   const currentBreeds = allBreeds.slice(indexOfFirstBreed, indexOfLastBreed); 
 //permite filtrar por temperamento  
   const [temperament, setTemperament] = useState("All"); 
