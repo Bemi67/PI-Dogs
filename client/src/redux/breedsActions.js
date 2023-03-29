@@ -25,7 +25,7 @@ export const CLEAN = "CLEAN";
 export function getBreeds() {
   return async function (dispatch) {
     try {
-      var pedidoApi = await axios.get("http://localhost:3001/dogs");
+      var pedidoApi = await axios.get("/dogs");
       return dispatch({
         type: GET_BREEDS,
 //esto es lo que devuelve la accion
@@ -41,7 +41,7 @@ export function getBreeds() {
 export function getTemperaments() {
   return async function (dispatch) {
 //devuelve un array de temperamentos
-    var pedidoApi = await axios.get("http://localhost:3001/temperaments", {}); 
+    var pedidoApi = await axios.get("/temperaments", {}); 
     return dispatch({
       type: GET_TEMPERAMENTS, 
       payload: pedidoApi.data, 
@@ -53,7 +53,7 @@ export function getBreedsDetails(id) {
   console.log(id);
   return async function (dispatch) {
     try {
-      var pedidoApi = await axios.get(`http://localhost:3001/dogs/${id}`);
+      var pedidoApi = await axios.get(`/dogs/${id}`);
       return dispatch({
         type: GET_BREEDS_DETAILS,
 //despacha la info conseguida
@@ -69,7 +69,7 @@ export function getByBreed(payload) {
   return async function (dispatch) {
     try {
 //contecta con la ruta que busca por nombre de la raza
-      var pedidoApi = await axios.get(`http://localhost:3001/dogs?name=${payload}`); 
+      var pedidoApi = await axios.get(`/dogs?name=${payload}`); 
       return dispatch({
         type: GET_BY_BREED,
         payload: pedidoApi.data,
@@ -104,7 +104,7 @@ export function filterByBreed(payload) {
 export function createBreed(payload) {
   return async function (dispatch) {
     try {
-      await axios.post("http://localhost:3001/create", payload);
+      await axios.post("/create", payload);
       return dispatch({
         type: CREATE_BREED,
       });
